@@ -1,19 +1,17 @@
 function handleNum(number, evenCallback, oddCallback) {
-    if (number % 2 === 0) {
-        evenCallback();
-    } 
-        else {
-            oddCallback();
-        }
+  if (number % 2 === 0) {
+    evenCallback();
+  } else {
+    oddCallback();
+  }
 }
-
 
 function handleEven() {
-console.log("число парне");
+  console.log("число парне");
 }
 
-function handleOdd() { 
-console.log("число не парне");
+function handleOdd() {
+  console.log("число не парне");
 }
 
 handleNum(7, handleEven, handleOdd);
