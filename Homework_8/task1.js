@@ -7,11 +7,9 @@ let zeroCount = 0;
 for (let i = 0; i < numbers.length; i++) {
   if (numbers[i] > 0) {
     positiveCount++;
-  } 
-    else if (numbers[i] < 0) {
+  } else if (numbers[i] < 0) {
     negativeCount++;
-  } 
-    else {
+  } else {
     zeroCount++;
   }
 }

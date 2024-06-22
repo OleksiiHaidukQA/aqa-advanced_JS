@@ -4,8 +4,8 @@ const getPlanetNames = async () => {
   for (let i = 1; i <= 10; i++) {
     planetPromises.push(
       fetch(`https://swapi.dev/api/planets/${i}/`).then((response) =>
-        response.json()
-      )
+        response.json(),
+      ),
     );
   }
 
@@ -22,7 +22,7 @@ const getHanSoloStarships = () => {
     .then((response) => response.json())
     .then((data) => {
       const starshipPromises = data.starships.map((url) =>
-        fetch(url).then((res) => res.json())
+        fetch(url).then((res) => res.json()),
       );
       return Promise.all(starshipPromises);
     })
@@ -40,7 +40,7 @@ const getHanSoloStarshipsAsync = async () => {
     const response = await fetch("https://swapi.dev/api/people/14/");
     const data = await response.json();
     const starshipPromises = data.starships.map((url) =>
-      fetch(url).then((res) => res.json())
+      fetch(url).then((res) => res.json()),
     );
     const starships = await Promise.all(starshipPromises);
     const starshipNames = starships.map((starship) => starship.name);
@@ -57,13 +57,13 @@ const getResidentsFromReturnOfTheJedi = async () => {
     const filmResponse = await fetch("https://swapi.dev/api/films/3/");
     const filmData = await filmResponse.json();
     const planetPromises = filmData.planets.map((url) =>
-      fetch(url).then((res) => res.json())
+      fetch(url).then((res) => res.json()),
     );
     const planets = await Promise.all(planetPromises);
     const residentsData = await Promise.all(
       planets.map(async (planet) => {
         const residentPromises = planet.residents.map((url) =>
-          fetch(url).then((res) => res.json())
+          fetch(url).then((res) => res.json()),
         );
         const residents = await Promise.all(residentPromises);
         const residentNames = residents.map((resident) => resident.name);
@@ -71,7 +71,7 @@ const getResidentsFromReturnOfTheJedi = async () => {
           planetName: planet.name,
           residents: residentNames,
         };
-      })
+      }),
     );
 
     console.log("Residents from Return of the Jedi:", residentsData);
